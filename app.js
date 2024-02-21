@@ -1,0 +1,38 @@
+const path = require("path");
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+require("dotenv").config();
+const hbs = require("hbs");
+const app = new express();
+const myPassport = require('./auth/myPassport')
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const PORT = 4444;
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.set("view engine", "hbs");
+app.use(session({
+  secret: 'kitkat',
+  resave: true,
+  saveUninitialized: true,
+  store: MongoStore.create({ mongoUrl: process.env.DB_PATH })
+}));
+app.use(myPassport.initialize());
+app.use(myPassport.session());
+
+const router = require('./routes/router');
+app.use('/', router);
+
+mongoose.connect(process.env.DB_PATH)
+  .then(() => {
+    console.log("Database server live->");
+    app.listen(PORT, () => {
+      console.log("App server running at http://localhost:" + PORT);
+    });
+  })
+  .catch((err) => {
+    console.log(err, "Failed to connect Database Server");
+  });
