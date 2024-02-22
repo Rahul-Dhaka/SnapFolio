@@ -7,5 +7,14 @@
 </head>
 <body>
     <h1>HomePage</h1>
+
+    <form action="/uploadpic" method="POST" enctype="multipart/form-data">
+    <input name ="title" placeholder ="title" type="text"> <br>
+    <input name ="image" placeholder ="Upload File" type="file"> <br>
+    <input name ="desc" placeholder ="desc" type="text"> <br>
+    <input name ="tag" placeholder ="tag" type="text"> <br>
+    <input name ="caption" placeholder ="caption" type="text"> <br>
+    <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
