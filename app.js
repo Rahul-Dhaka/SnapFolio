@@ -28,6 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 const router = require('./routes/router');
 app.use('/', router);
 
+app.use('/uploadpic',require('./routes/uploadpic'));
+
 
 mongoose.connect(process.env.DB_PATH)
   .then(() => {
