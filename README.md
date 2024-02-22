@@ -6,8 +6,8 @@
         - INPUT : USERNAME, PASSWORD
         - Strategy : Local, [Facebook]
 
-    - POST /auth/signup (name, age, username, password)
-    - POST /auth/login 
+    - POST /signup (name, age, username, password)
+    - POST /login 
     - GET /login
     - GET /SignUp
 
@@ -15,7 +15,7 @@
 ----------------------------------------------
     Add media to your profile
 
-    - POST /photos - (upload photo, caption, tags, location)
+    - POST /uploadPhoto - (upload photo, caption, tags, location)
     - GET /photos - (retrieve all photos)
     - GET /photos?{photoid} - (retrive single photo)
     - POST /photo?{photoid} - (update details of photo)

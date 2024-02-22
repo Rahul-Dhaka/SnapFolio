@@ -1,17 +1,25 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SnapFolio</title>
+    <link rel="stylesheet" href="/styles/login.css" />
+  </head>
+  <body>
     <h1>Login</h1>
-    <form action="/login" method="post">
-    <input type="text" name="username" placeholder="username"><br>
-    <input type="text" name="password" placeholder="password"><br>
-    <Button type="submit">Login</Button>
-        New user ?<a href="/signup">Signup</a>
-    </form>
-</body>
+    <div class="container">
+      <div class="partition p1"></div>
+      <div class="partition p2">
+        <img class="logo" src="/logo.png" alt="" >
+        <form class="form" action="/login" method="post">
+          <input class="inputfield" type="text" name="username" placeholder="username" />
+          <input class="inputfield" type="text" name="password" placeholder="password" />
+          <Button class="loginbtn" type="submit">Login</Button>
+        </form><hr class="ruler">
+            <h5 class="shead">Abhi tak account nahi bnaya ?</h5>
+            <button class="signupbtn"><a href="/signup">Sign Up</a></button>
+    </div>
+    </div>
+
+  </body>
 </html>

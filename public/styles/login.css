@@ -1,0 +1,115 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  background-image: url('/background.jpg');
+  background-position: center;
+  background-size: cover;
+  
+}
+
+.container {
+  height: 80vh;
+  width: 60vw;
+  margin: 0 auto;
+  background-color: #add8e6;
+  display: flex;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.partition {
+  width: 50%;
+  height: 100%;
+}
+
+.p1{
+  background-color: pink;
+}
+
+.p2 {
+  /* background-color: pink; */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.logo {
+  width: 230px;
+}
+
+.form {
+  height: 40%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.inputfield {
+  width: 100%;
+  padding: 12px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+.loginbtn {
+  width: 100%;
+  padding: 6px;
+  margin-top: 15px;
+  font-size: 18px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ruler {
+  width: 100%;
+  border: none;
+  height: 2px;
+  background-color: #a8a2a2;
+  margin: 10px 0;
+}
+
+.shead{
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.signupbtn {
+  padding: 6px 20px;
+  background-color: #007bff;
+  width: 40%;
+  border: none;
+  margin: 2px auto;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  /* text-decoration: none; */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signupbtn a {
+  text-decoration: none;
+  color: white;
+}
