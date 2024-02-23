@@ -1,15 +1,42 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>This is profile</h1>
-    <h3>username: {{username}}</h3><br>
-    <h3>name:</h3>
-    <button><a href="/logout" >Logout</a></button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SnapFolio</title>
+    <link rel="stylesheet" href="/styles/navbar.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/styles/profile.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Explore</a></li>
+        <li><div class="search-box">
+            <input type="text" class="search-input" placeholder="Search..." />
+            <button class="search-button"><i class="fas fa-search"></i></button>
+          </div></li>
+        <li><a href="#">Upload</a></li>
+        <li><a href="#">Profile</a></li>
+        <li class="logoutbtn"><a href="/logout">Logout</a></li>
+      </ul>
+    </nav>
 
-</body>
+    <div class="heading">
+      <h2>Hi, <span>{{name}}</span></h2>
+      <img src="/logo.png" alt="" />
+    </div>
+    <div class="container">
+      <div class="p1">
+        <h3>Your info</h3>
+        <h5>username: {{username}}</h5>
+        <h5>Name: {{name}}</h5>
+        <h5>Age: {{age}}</h5>
+      </div>
+      <div class="p2"><h3>Your Photos</h3></div>
+    </div>
+  </body>
 </html>
