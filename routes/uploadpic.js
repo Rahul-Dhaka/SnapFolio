@@ -1,6 +1,7 @@
 const express = require('express');
 const rout = new express();
-const multer  = require('multer')
+const multer  = require('multer');
+const Photo = require('../models/photo');
 const cloudinary = require('cloudinary').v2
 
 cloudinary.config({ 
@@ -20,18 +21,30 @@ cloudinary.config({
   // const upload = 
   rout.use(multer({storage}).single('image'))
   
-  rout.get('/uploadpic',(req,res)=>{
-      res.render('index');
+  rout.get('/',async (req,res)=>{
+    let photoes = await Photo.find();
+    console.log(photoes);
+      res.render('index',{
+        photoes
+      });
   })
-  rout.post('/uploadpic',(req,res)=>{
+  rout.post('/',(req,res)=>{
       const {title,desc,tag,caption}= req.body;
       console.log(title,desc,tag,caption);
       console.log(req.file);
+      console.log(req.user.username);
+      const user= req.user._id;
       cloudinary.uploader.upload(`${req.file.path}`,
-    { public_id: "olympic_flag" }, 
-    function(error, result) 
-    {console.log(result.url); });
-      res.send('OK');
+            { public_id: "olympic_flag" }, 
+             async function(error, result) 
+             {console.log(result.url);
+                let url  =result.url; 
+                let photo = await Photo.create({user,title,desc,tag,caption,imageUrl:url})
+            }
+            
+            );
+            res.redirect('/uploadpic')
+    //   res.send('OK');
   })
 
 module.exports = rout;

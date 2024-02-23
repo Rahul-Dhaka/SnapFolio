@@ -16,5 +16,19 @@
     <input name ="caption" placeholder ="caption" type="text"> <br>
     <button type="submit">Submit</button>
     </form>
+
+
+    <ul>
+        {{#each photoes as |post|}}
+            <li>
+            Title:{{post.title}} <br>
+            image: <img src={{post.imageUrl}} alt=""><br>
+            Description:{{post.desc}} <br>
+            Caption: {{post.caption}}<br>
+            Tag: {{post.tag}}<br>
+            </li>
+        {{/each}}
+        
+    </ul>
 </body>
 </html>
