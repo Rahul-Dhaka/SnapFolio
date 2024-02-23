@@ -4,26 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SnapFolio</title>
     <link rel="stylesheet" href="/styles/navbar.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     <link rel="stylesheet" href="/styles/profile.css" />
   </head>
   <body>
-    <nav class="navbar">
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Explore</a></li>
-        <li><div class="search-box">
-            <input type="text" class="search-input" placeholder="Search..." />
-            <button class="search-button"><i class="fas fa-search"></i></button>
-          </div></li>
-        <li><a href="#">Upload</a></li>
-        <li><a href="#">Profile</a></li>
-        <li class="logoutbtn"><a href="/logout">Logout</a></li>
-      </ul>
-    </nav>
+    {{>navbar}}
 
     <div class="heading">
       <h2>Hi, <span>{{name}}</span></h2>

@@ -9,7 +9,7 @@
 
 body{
     background-color: #e6e2e2;
-    overflow-x: clip;
+    overflow-x  : clip;
 }
 
 .navbar {
@@ -78,6 +78,7 @@ body{
     width: 200px;
     /* font-size: 14px; */
     outline: none;
+    background: none;
 }
 
 /* Style for search button */
@@ -85,8 +86,10 @@ body{
     background-color: black;
     color: #fff;
     border: none;
-    padding: 6px;
+    padding: 2px;
     border-radius: 50px;
+    min-width: 25px;
+    min-height: 25px;
     margin-left: 5px;
     cursor: pointer;
 }

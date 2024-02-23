@@ -1,5 +1,10 @@
 # SnapFolio
 
+# .env file keys format
+DB_PATH = "your mongo db path"
+
+----------------------------------------------
+
  -> API Endpoints <-
 
     authenticate : PASSPORTJS

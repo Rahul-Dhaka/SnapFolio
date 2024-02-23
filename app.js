@@ -14,7 +14,7 @@ const PORT = 4444;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.set("view engine", "hbs");
-hbs.registerPartials(__dirname,'/views/partials');
+hbs.registerPartials(path.join(__dirname,'views/partials'));
 app.use(session({
   secret: 'kitkat',
   resave: true,

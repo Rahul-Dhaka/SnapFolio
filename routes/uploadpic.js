@@ -44,7 +44,8 @@ cloudinary.config({
             }
             
             );
-            res.redirect('/uploadpic')
+            // res.redirect('/home');
+            res.redirect('/');
     //   res.send('OK');
   })
 
