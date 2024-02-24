@@ -24,7 +24,8 @@ body{
     margin: 0 auto;
     padding: 0px 3px 0px 5px;
     /* background-color: white; */
-    backdrop-filter: blur(10px);
+    background-color: hsla(0,0%,100%,.8);
+    backdrop-filter: blur(4px);
     border: 1px solid black;
     border-radius: 50px;
     box-sizing: border-box;

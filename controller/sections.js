@@ -10,7 +10,7 @@ module.exports.getHome = (req, res) => {
   if (!req.user) {
     res.redirect("/login");
   } else {
-    res.render("home", { username: req.user.username, name: req.user.name });
+    res.render("home1", { username: req.user.username, name: req.user.name });
   }
 };
 

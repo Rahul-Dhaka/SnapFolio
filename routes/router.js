@@ -17,7 +17,7 @@ router.get('/logout', authController.getLogout);
 router.get('/signup', authController.getSignup);
 router.post('/signup', authController.postSignup);
 router.get('/profile', sectionsController.getProfile);
-router.get('/home', sectionsController.getHome);
+router.get('/home1', sectionsController.getHome);
 router.get('/upload', sectionsController.getUpload);
 
 module.exports = router;

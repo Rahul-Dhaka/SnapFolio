@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapFolio</title>
+    <link rel="stylesheet" href="/styles/navbar.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="/styles/home.css">
+</head>
+<body>
+    {{>navbar}}
+    
+    <div class="heading">
+      <h2>HomePage</h2>
+      <img src="/logo.png" alt="" />
+    </div>
+
+    <div class="container">
+        <div class="post">
+    <img src="https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg" alt="Post Image">
+    <div class="caption">
+      <p>This is the caption for the post. It can be a longer description of the content, or any additional information.</p>
+      <button class="like-button" onclick="toggleLike(this)"><i class="fas fa-heart"></i> Like</button>
+    </div>
+  </div>
+   <div class="post">
+    <img src="https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/09/instagram-image-size.jpg" alt="Post Image">
+    <div class="caption">
+      <p> or any additional information.</p>
+      <button class="like-button" onclick="toggleLike(this)"><i class="fas fa-heart"></i> Like</button>
+    </div>
+  </div>
+   <div class="post">
+    <img src="https://lh3.googleusercontent.com/proxy/DKC4Js5LvayNI5UXNn8oGaub--j0WYpwgK5SI-Q1z0ciPzbyphlLsHYkmm9EyghoYgjWvWlf2Uv4vBERi3tr--hVUQBzMkp_DSDP6q6mloYbkkUjnzpUOLHaQIE3-c2PXtER56E9aerl1QV6x4Q" alt="Post Image">
+    <div class="caption">
+      <p>This is the caption for the post. It can be a longer description of the content</p>
+      <button class="like-button" onclick="toggleLike(this)"><i class="fas fa-heart"></i> Like</button>
+    </div>
+  </div>
+   <div class="post">
+    <img src="https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg" alt="Post Image">
+    <div class="caption">
+      <p>small caption</p>
+      <button class="like-button" onclick="toggleLike(this)"><i class="fas fa-heart"></i> Like</button>
+    </div>
+  </div>
+    </div>
+
+
+
+
+    {{!-- <ul>
+        {{#each photoes as |post|}}
+            <li>
+            Title:{{post.title}} <br>
+            image: <img src={{post.imageUrl}} alt=""><br>
+            Description:{{post.desc}} <br>
+            Caption: {{post.caption}}<br>
+            Tag: {{post.tag}}<br>
+            </li>
+        {{/each}}
+        
+    </ul> --}}
+    <script>
+    function toggleLike(button) {
+      button.classList.toggle('liked');
+    }
+  </script>
+</body>
+</html>

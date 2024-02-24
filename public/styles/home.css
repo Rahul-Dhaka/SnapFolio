@@ -1,31 +1,112 @@
-.heading{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
-    height: 85px;
-    background-color: #fff;
-    border-radius: 0px 0px 40px 40px;
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 85px;
+  background-color: #fff;
+  border-radius: 0px 0px 40px 40px;
 }
 
-.heading h2{
-    padding: 30px;
+.heading h2 {
+  padding: 30px;
 }
 
-.heading img{
-    width: 250px;
-    padding: 20px;
-    margin-top: 20px;
+.heading img {
+  width: 250px;
+  padding: 20px;
+  margin-top: 20px;
 }
 
-.container{
-    margin: 10px auto;
-    padding: 10px;
-    width: 85vw;
-    height: 500px;
-    background-color: #fff;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.container {
+  margin: 10px auto;
+  padding: 10px;
+  width: 85vw;
+  height: fit-content;
+  background-color: #fff;
+  border-radius: 20px;
+  display: flex;
+  /* flex-wrap:nowrap; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.post {
+  width: 50%;
+  height: fit-content;
+  /* max-height: 300px; */
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post img {
+  width: 100%;
+  height: fit-content;
+  /* display: block; */
+  border-bottom: 1px solid #ddd;
+  background-position: center;
+  background-size: cover;
+  /* overflow: hidden; */
+}
+
+.caption {
+  padding: 10px;
+}
+
+.caption p {
+  margin: 0;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.caption p:first-child {
+  margin-top: 0;
+}
+
+.like-button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.like-button:hover {
+  background-color: #45a049;
+}
+
+/* Like button animation */
+.liked .fa-heart {
+  color: rgb(233, 41, 41);
+  animation: heartBeat 0.3s ease;
+}
+
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  75% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
