@@ -17,22 +17,15 @@ const Photo = require('../models/photo');
 exports.likePhoto = async (req, res) => {
     try {
         const { photoId } = req.params;
-        
-        const photo = await Photo.findOne({_id:photoId});
-        
-        // Checking if the user has already liked the photo or not
-        console.log(photo.likes)
-        const existingLike = photo.likes.filter(like => like.id==req.user._id);
-        console.log(existingLike)
-        console.log((req.user._id));
+        const photo = await Photo.findById(photoId);
 
-        if (existingLike.length==0) {
+        // Check if the user has already liked the photo
+        const existingLike = photo.likes.find(like => like.equals(req.user._id));
+
+        if (!existingLike) {
             // Add like to the photo
-            photo.likes.push({
-               id: req.user._id
-            });
+            photo.likes.push(req.user._id);
             await photo.save();
-            console.log(photo.likes)
         }
 
         res.redirect('/home'); // Redirect to home page
@@ -45,13 +38,13 @@ exports.likePhoto = async (req, res) => {
 exports.unlikePhoto = async (req, res) => {
     try {
         const { photoId } = req.params;
-        const photo = await Photo.findOne({_id:photoId});
+        const photo = await Photo.findById(photoId);
 
         // Remove like from the photo
-        photo.likes = photo.likes.filter(like => like.id != req.user._id);
+        photo.likes = photo.likes.filter(like => !like.equals(req.user._id));
         await photo.save();
 
-        res.redirect('/home');
+        res.redirect(`/home`);
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');
