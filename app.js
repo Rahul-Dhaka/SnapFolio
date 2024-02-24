@@ -9,6 +9,7 @@ const myPassport = require('./auth/myPassport')
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const PORT = 4444;
+// const { isLoggedIn } = require('./middleware/auth'); // Adjust the path accordingly
 const photoController = require('./controller/photoController');
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,7 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 const router = require('./routes/router');
 app.use('/', router);
 
-app.use('/uploadpic',require('./routes/uploadpic'));
+const isLoggedIn = require('./middleware/isLoggedIn')
+app.use('/uploadpic', require('./routes/uploadpic'));
 
 app.use((req, res, next) => {
   res.locals.user = req.session.user;
