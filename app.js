@@ -9,7 +9,7 @@ const myPassport = require('./auth/myPassport')
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const PORT = 4444;
-
+const photoController = require('./controller/photoController');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -30,6 +30,16 @@ app.use('/', router);
 
 app.use('/uploadpic',require('./routes/uploadpic'));
 
+app.use((req, res, next) => {
+  res.locals.user = req.session.user;
+  // console.log(req.user)
+  next();
+});
+
+// Routes for photo-related functionalities
+// app.get('/photos/:photoId', photoController.getPhotoDetails);
+app.post('/api/photos/:photoId/like', photoController.likePhoto);
+app.post('/api/photos/:photoId/unlike', photoController.unlikePhoto);
 
 mongoose.connect(process.env.DB_PATH)
   .then(() => {

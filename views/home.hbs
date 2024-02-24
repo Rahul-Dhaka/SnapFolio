@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        {{#each photoes as |post|}}
+            <div>
+                Title:{{post.title}} <br>
+                image: <img src={{post.imageUrl}} alt=""><br>
+                Description:{{post.desc}} <br>
+                Caption: {{post.caption}}<br>
+                Tag: {{post.tag}}<br>
+                {{!-- {{post._id}} --}}
+                <!-- Like and Unlike buttons -->
+                <form action="/api/photos/{{post._id}}/like" method="POST">
+                    <button type="submit">Like</button>
+                </form>
+
+                <form action="/api/photos/{{post._id}}/unlike" method="POST">
+                    <button type="submit">Unlike</button>
+                </form>
+                <!-- Display like count -->
+                <p>{{post.likes.length}} likes</p>
+            </div>
+        {{/each}}
+</body>
+</html>

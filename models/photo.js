@@ -2,14 +2,19 @@ const mongoose = require('mongoose');
 
 const photoSchema = new mongoose.Schema({
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    title:{ type: String, required: true },
+    title:{ type: String },
     imageUrl: { type: String, required: true },
     desc: { type: String, required: true },
     caption: String,
     tag: [{ type: String}],
+    likes: [{ id:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }}],
 }, { timestamps: true });
 
 module.exports = mongoose.model('Photo', photoSchema);
+
 
 // imageUrl: { type: String, required: true },
 // Add other photo-related fields as needed

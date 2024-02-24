@@ -2,10 +2,11 @@ const express = require('express');
 const router = new express();
 const authController = require('../controller/auth');
 const sectionsController = require('../controller/sections');
-const myPassport = require('../auth/myPassport')
+const myPassport = require('../auth/myPassport');
+const photo = require('../models/photo');
 
 router.get('/', (req,res)=>{
-    res.render('index');
+    res.redirect('login');
 })
 
 router.post('/login', myPassport.authenticate('local', { failureRedirect: '/login' }),function (req, res) {
@@ -19,5 +20,13 @@ router.post('/signup', authController.postSignup);
 router.get('/profile', sectionsController.getProfile);
 router.get('/home1', sectionsController.getHome);
 router.get('/upload', sectionsController.getUpload);
+
+router.get('/home',async (req,res)=>{
+    let photoes = await photo.find();
+    // console.log(photoes);
+      res.render('home',{
+        photoes
+      });
+  })
 
 module.exports = router;
