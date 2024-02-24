@@ -24,11 +24,12 @@ cloudinary.config({
   
   rout.get('/',async (req,res)=>{
     let photoes = await Photo.find();
-    console.log(photoes);
+    // console.log(photoes);
       res.render('index',{
         photoes
       });
   })
+  
   rout.post('/',(req,res)=>{
       const {title,desc,tag,caption}= req.body;
       console.log(title,desc,tag,caption);
@@ -44,8 +45,7 @@ cloudinary.config({
             }
             
             );
-            // res.redirect('/home');
-            res.redirect('/');
+            res.redirect('/home')
     //   res.send('OK');
   })
 
