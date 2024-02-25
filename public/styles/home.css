@@ -6,6 +6,7 @@
   height: 85px;
   background-color: #fff;
   border-radius: 0px 0px 40px 40px;
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.15);
 }
 
 .heading h2 {
@@ -21,7 +22,7 @@
 .container {
   margin: 10px auto;
   padding: 10px;
-  width: 85vw;
+  width: 75vw;
   height: fit-content;
   background-color: #fff;
   border-radius: 20px;
@@ -30,17 +31,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.3);
 }
 
 .post {
-  width: 50%;
+  width: 40%;
   height: fit-content;
   /* max-height: 300px; */
   margin: 10px;
   border: 1px solid #ddd;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.25);
 }
 
 .post img {
@@ -64,36 +66,77 @@
   line-height: 1.6;
 }
 
+
+
 .caption p:first-child {
   margin-top: 0;
 }
 
-.like-button {
-  background-color: #4caf50;
+.caption .user{
+  font-weight: 500;
+  font-size: 14px;
+  text-align: right;
+}
+
+.ruler {
+  width: 100%;
   border: none;
-  color: white;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-top: 10px;
-  cursor: pointer;
+  height: 1px;
   border-radius: 25px;
-  transition: all 0.3s ease;
+  background-color: #a8a2a2;
+  margin: 10px auto;
 }
 
-.like-button:hover {
-  background-color: #45a049;
+.features{
+  width: 100%;
+  /* background-color: yellow; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Like button animation */
-.liked .fa-heart {
-  color: rgb(233, 41, 41);
-  animation: heartBeat 0.3s ease;
+.like{
+  display: flex;
+  justify-content: center;
+  /* height: 50px;
+  width: 200px; */
+  /* align-items: center; */
+  /* border: 1px solid black; */
+  padding: 2px 5px;
+  border-radius: 25px;
 }
 
-@keyframes heartBeat {
+.like .counter{
+  /* margin-bottom: 20px; */
+  margin: 6px;
+  font-size: 18px;
+}
+
+.l2button {
+  cursor: pointer;
+  padding: 1px 6px;
+  margin: 5px;
+  border: 2px solid #5a91cc;
+  border-radius: 35px;
+  background-color: transparent;
+  color: #5a91cc;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.l2button:hover {
+  background-color: #5a91cc;
+  color: #fff;
+  transform: scale(1.25);
+}
+
+.counter {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+@keyframes likean {
   0% {
     transform: scale(1);
   }

@@ -17,55 +17,39 @@
     </div>
 
     <div class="container">
+      {{#each photoes as |post|}}
         <div class="post">
-    <img src="https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg" alt="Post Image">
+    <img src={{post.imageUrl}} alt="Post Image">
     <div class="caption">
-      <p>This is the caption for the post. It can be a longer description of the content, or any additional information.</p>
-      <button class="like-button" onclick="toggleLike(this)"><i class="fas fa-heart"></i> Like</button>
+      <p>{{post.caption}}</p><hr class="ruler">
+      <p class="user">uploaded by : @{{post.user.username}}</p>
     </div>
-  </div>
-   <div class="post">
-    <img src="https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/09/instagram-image-size.jpg" alt="Post Image">
-    <div class="caption">
-      <p> or any additional information.</p>
-      <button class="like-button" onclick="toggleLike(this)"><i class="fas fa-heart"></i> Like</button>
-    </div>
-  </div>
-   <div class="post">
-    <img src="https://lh3.googleusercontent.com/proxy/DKC4Js5LvayNI5UXNn8oGaub--j0WYpwgK5SI-Q1z0ciPzbyphlLsHYkmm9EyghoYgjWvWlf2Uv4vBERi3tr--hVUQBzMkp_DSDP6q6mloYbkkUjnzpUOLHaQIE3-c2PXtER56E9aerl1QV6x4Q" alt="Post Image">
-    <div class="caption">
-      <p>This is the caption for the post. It can be a longer description of the content</p>
-      <button class="like-button" onclick="toggleLike(this)"><i class="fas fa-heart"></i> Like</button>
-    </div>
-  </div>
-   <div class="post">
-    <img src="https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg" alt="Post Image">
-    <div class="caption">
-      <p>small caption</p>
-      <button class="like-button" onclick="toggleLike(this)"><i class="fas fa-heart"></i> Like</button>
-    </div>
-  </div>
-    </div>
+    
+      <div class="features">
+        <div class="like">
+          <div class="counter" id="likeCounter">{{post.likes.length}} likes</div>
+      <form action="/api/photos/{{post._id}}/like" method="POST">
+         <button class="l2button" id="likeBtn" type="submit"><i class="fas fa-thumbs-up"></i></button>
+      </form>
 
-
-
-
-    {{!-- <ul>
-        {{#each photoes as |post|}}
-            <li>
-            Title:{{post.title}} <br>
-            image: <img src={{post.imageUrl}} alt=""><br>
-            Description:{{post.desc}} <br>
-            Caption: {{post.caption}}<br>
-            Tag: {{post.tag}}<br>
-            </li>
-        {{/each}}
+      <form action="/api/photos/{{post._id}}/unlike" method="POST">
+               <button class="l2button" id="dislikeBtn" type="submit"><i class="fas fa-thumbs-down"></i></button>     
+                </form>
         
-    </ul> --}}
-    <script>
-    function toggleLike(button) {
-      button.classList.toggle('liked');
-    }
-  </script>
+        </div>
+      </div>
+  </div>
+
+      {{/each}}
+
+        
+    </div>
+
+     
+
+
+
+   
+    
 </body>
 </html>

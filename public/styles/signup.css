@@ -35,7 +35,11 @@ body{
   }
   
   .p1{
-    background-color: pink;
+    /* background-color: pink; */
+    box-sizing: border-box;
+    background-image: url("../signup.png");
+    background-position: center;
+    background-size: cover;
   }
   
   .p2 {

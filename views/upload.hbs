@@ -16,19 +16,19 @@
     </div>
      <div class="upload-container">
         <h1 class="upload-title">Add your photo</h1>
-        <form action="#" method="post" enctype="multipart/form-data" class="upload-form">
+        <form action="/uploadpic" method="POST" enctype="multipart/form-data" class="upload-form">
          <div class="upload-file-container">
             <label for="post-image" class="upload-label">Image:</label>
-                <input type="file" id="post-image" name="post-image" accept="image/*" class="upload-file" required>
+                <input type="file" id="post-image" name="image" accept="image/*" class="upload-file" required>
                 {{!-- <i class="fas fa-cloud-upload-alt upload-file-icon"></i> --}}
             </div>
 
          <label for="post-content" class="upload-label">Caption:</label>
-         <textarea id="post-content" name="post-content" rows="3" class="upload-textarea" required></textarea>
+         <textarea id="post-content" name="caption" rows="3" class="upload-textarea" required></textarea>
 
 
             <label for="post-title" class="upload-label">Title:</label>
-            <input type="text" id="post-title" name="post-title" class="upload-input" required>
+            <input type="text" id="post-title" name="title" class="upload-input" required>
 
            
             

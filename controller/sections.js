@@ -1,16 +1,28 @@
-module.exports.getProfile = (req, res) => {
+const photo = require('../models/photo');
+
+module.exports.getProfile = async (req, res) => {
   if (!req.user) {
     res.redirect("/login");
   } else {
-    res.render("profile", { username: req.user.username, name: req.user.name, age:req.user.age });
+    let photos = await photo.find({user :req.user._id});
+    // console.log(photos)
+    res.render("profile", {
+      username: req.user.username,
+      name: req.user.name,
+      age: req.user.age,
+      photos
+    });
   }
 };
 
-module.exports.getHome = (req, res) => {
+module.exports.getHome = async (req, res) => {
   if (!req.user) {
     res.redirect("/login");
   } else {
-    res.render("home1", { username: req.user.username, name: req.user.name });
+    let photoes = await photo.find().populate('user');
+    res.render("home1", {
+      photoes,
+    });
   }
 };
 

@@ -16,31 +16,28 @@
     </div>
     <div class="container">
       <div class="p1">
-        <h3>Your info</h3>
-        <h5>username: {{username}}</h5>
-        <h5>Name: {{name}}</h5>
-        <h5>Age: {{age}}</h5>
+        <h3>Account Info</h3>
+        <h5>Username : {{username}}</h5>
+        <h5>Name : {{name}}, <span>{{age}}</span></h5>
       </div>
       <div class="p2"><h3>Your Photos</h3>
       <div class="photoscontainer">
+
+        {{#each photos as |p|}}
        <a href="#"><div class="square-container">
-    <div class="square-image" style="background-image: url('https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg');"></div>
-  </div></a> 
-  <a href="#"><div class="square-container">
-    <div class="square-image" style="background-image: url('https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg');"></div>
-  </div></a> 
-  <a href="#"><div class="square-container">
-    <div class="square-image" style="background-image: url('https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg');"></div>
-  </div></a> 
-  <a href="#"><div class="square-container">
-    <div class="square-image" style="background-image: url('https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg');"></div>
-  </div></a> 
-  <a href="#"><div class="square-container">
-    <div class="square-image" style="background-image: url('https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg');"></div>
-  </div></a> 
-  <a href="#"><div class="square-container">
-    <div class="square-image" style="background-image: url('https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg');"></div>
-  </div></a> 
+        
+    <div class="square-image" style="background-image: url({{p.imageUrl}});">
+    <div class="features">
+    
+          <div class="likes" id="likeCounter"><i class="fas fa-heart"></i><p> {{p.likes.length}}</p></div>
+        
+    </div>
+    </div>
+  </div>
+  
+  </a> 
+  {{/each}}
+ 
       </div>
       </div>
     </div>
