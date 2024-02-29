@@ -29,6 +29,7 @@ body{
     border: 1px solid black;
     border-radius: 50px;
     box-sizing: border-box;
+    z-index: 10;
 }
 
 
@@ -42,9 +43,9 @@ body{
     align-items: center;
 }
 
-.nav-links li {
+/* .nav-links li {
     
-}
+} */
 
 .nav-links li a {
     color: black;

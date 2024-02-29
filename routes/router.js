@@ -1,6 +1,7 @@
 const express = require('express');
 const router = new express();
 const authController = require('../controller/auth');
+const exploreController = require('../controller/exploreController');
 const sectionsController = require('../controller/sections');
 const myPassport = require('../auth/myPassport');
 const photo = require('../models/photo');
@@ -23,6 +24,9 @@ router.get('/home', sectionsController.getHome);
 router.get('/upload', sectionsController.getUpload);
 router.use(multer({ storage }).single("image"));
 router.post('/upload', cloudinaryUtil.uploadPhoto);
+//Added Explore Section
+router.get('/explore', exploreController.getExplore);
+router.post('/explore/loadmore', exploreController.loadMorePosts);
 
 
 // ------------------------------------------------------ testing area below
