@@ -29,8 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 const router = require('./routes/router');
 app.use('/', router);
 
-const isLoggedIn = require('./middleware/isLoggedIn')
-app.use('/uploadpic', require('./routes/uploadpic'));
+// const isLoggedIn = require('./middleware/isLoggedIn')
+// app.use('/uploadpic', require('./routes/uploadpic'));
 
 app.use((req, res, next) => {
   res.locals.user = req.session.user;

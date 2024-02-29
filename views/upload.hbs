@@ -16,7 +16,7 @@
     </div>
      <div class="upload-container">
         <h1 class="upload-title">Add your photo</h1>
-        <form action="/uploadpic" method="POST" enctype="multipart/form-data" class="upload-form">
+        <form action="/upload" method="POST" enctype="multipart/form-data" class="upload-form">
          <div class="upload-file-container">
             <label for="post-image" class="upload-label">Image:</label>
                 <input type="file" id="post-image" name="image" accept="image/*" class="upload-file" required>
@@ -29,6 +29,11 @@
 
             <label for="post-title" class="upload-label">Title:</label>
             <input type="text" id="post-title" name="title" class="upload-input" required>
+
+        <label for="java"><input type="checkbox" id="java" name="tags" value="Technology">Technology</label>
+        <label for="python"><input type="checkbox" id="python" name="tags" value="nature"> Nature</label>
+        <label for="javascript"><input type="checkbox" id="javascript" name="tags" value="education">education</label>
+        <label for="csharp"><input type="checkbox" id="csharp" name="tags" value="fun">Fun</label>
 
            
             

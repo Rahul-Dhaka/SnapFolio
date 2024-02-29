@@ -3,28 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SnapFolio</title>
+    <link rel="stylesheet" href="/styles/navbar.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="/styles/home.css">
 </head>
 <body>
-        {{#each photoes as |post|}}
-            <div>
-                Title:{{post.title}} <br>
-                image: <img src={{post.imageUrl}} alt=""><br>
-                Description:{{post.desc}} <br>
-                Caption: {{post.caption}}<br>
-                Tag: {{post.tag}}<br>
-                {{!-- {{post._id}} --}}
-                <!-- Like and Unlike buttons -->
-                <form action="/api/photos/{{post._id}}/like" method="POST">
-                    <button type="submit">Like</button>
-                </form>
+    {{>navbar}}
+    
+    <div class="heading">
+      <h2>HomePage</h2>
+      <img src="/logo.png" alt="" />
+    </div>
 
-                <form action="/api/photos/{{post._id}}/unlike" method="POST">
-                    <button type="submit">Unlike</button>
+    <div class="container">
+      {{#each photoes as |post|}}
+        <div class="post">
+    <img src={{post.imageUrl}} alt="Post Image">
+    <div class="caption">
+      <p>{{post.caption}}</p><hr class="ruler">
+      <p class="user">uploaded by : @{{post.user.username}}</p>
+    </div>
+    
+      <div class="features">
+        <div class="like">
+          <div class="counter" id="likeCounter">{{post.likes.length}} likes</div>
+      <form action="/api/photos/{{post._id}}/like" method="POST">
+         <button class="l2button" id="likeBtn" type="submit"><i class="fas fa-thumbs-up"></i></button>
+      </form>
+
+      <form action="/api/photos/{{post._id}}/unlike" method="POST">
+               <button class="l2button" id="dislikeBtn" type="submit"><i class="fas fa-thumbs-down"></i></button>     
                 </form>
-                <!-- Display like count -->
-                <p>{{post.likes.length}} likes</p>
-            </div>
-        {{/each}}
+        
+        </div>
+      </div>
+  </div>
+
+      {{/each}}
+
+        
+    </div>
+
+     
+
+
+
+   
+    
 </body>
 </html>

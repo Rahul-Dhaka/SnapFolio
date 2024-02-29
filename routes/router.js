@@ -4,10 +4,11 @@ const authController = require('../controller/auth');
 const sectionsController = require('../controller/sections');
 const myPassport = require('../auth/myPassport');
 const photo = require('../models/photo');
+const cloudinaryUtil = require('../utils/cloudinaryUtil');
+const storage = cloudinaryUtil.storage;
+const multer = require('multer');
 
-router.get('/', (req,res)=>{
-    res.redirect('login');
-})
+router.get('/', (req,res)=>{ res.redirect('login');});
 
 router.post('/login', myPassport.authenticate('local', { failureRedirect: '/login' }),function (req, res) {
     res.redirect('/profile');
@@ -18,15 +19,24 @@ router.get('/logout', authController.getLogout);
 router.get('/signup', authController.getSignup);
 router.post('/signup', authController.postSignup);
 router.get('/profile', sectionsController.getProfile);
-router.get('/home1', sectionsController.getHome);
+router.get('/home', sectionsController.getHome);
 router.get('/upload', sectionsController.getUpload);
+router.use(multer({ storage }).single("image"));
+router.post('/upload', cloudinaryUtil.uploadPhoto);
 
-router.get('/home',async (req,res)=>{
-    let photoes = await photo.find();
-    // console.log(photoes);
-      res.render('home',{
-        photoes
-      });
-  })
+
+// ------------------------------------------------------ testing area below
+
+
+
+router.post(`/test`, async (req,res)=>{
+    console.log(req.body.search)
+    let tag = req.body.search;
+    let posts = await photo.find({tags: tag});
+    console.log(posts)
+    res.render('test', {posts});
+
+});
+
 
 module.exports = router;
