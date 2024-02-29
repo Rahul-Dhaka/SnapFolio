@@ -28,7 +28,7 @@ exports.likePhoto = async (req, res) => {
             await photo.save();
         }
 
-        res.redirect('/home1'); // Redirect to home page
+        res.redirect('/home'); // Redirect to home page
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');
@@ -44,7 +44,7 @@ exports.unlikePhoto = async (req, res) => {
         photo.likes = photo.likes.filter(like => !like.equals(req.user._id));
         await photo.save();
 
-        res.redirect(`/home1`);
+        res.redirect(`/home`);
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');

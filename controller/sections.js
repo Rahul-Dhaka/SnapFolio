@@ -19,8 +19,8 @@ module.exports.getHome = async (req, res) => {
   if (!req.user) {
     res.redirect("/login");
   } else {
-    let photoes = await photo.find().populate('user');
-    res.render("home1", {
+    let photoes = await photo.find({}).populate('user');
+    res.render("home", {
       photoes,
     });
   }

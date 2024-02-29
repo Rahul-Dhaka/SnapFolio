@@ -4,9 +4,8 @@ const photoSchema = new mongoose.Schema({
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'user', required: true },
     title:{ type: String },
     imageUrl: { type: String, required: true },
-    desc: { type: String},
     caption: String,
-    tag: [{ type: String}],
+    tags: [{ type: String}],
     likes: [{ id:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'

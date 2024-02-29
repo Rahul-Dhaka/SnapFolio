@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{#each posts as |p|}}
+    <img src={{p.imageUrl}} alt="Post Image">
+    <div class="caption">
+      <p>{{p.caption}}</p><hr class="ruler">
+      <p class="user">uploaded by : @{{p.user.username}}</p>
+    </div>
+    {{/each}}
+</body>
+</html>
