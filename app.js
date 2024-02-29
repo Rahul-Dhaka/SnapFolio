@@ -40,6 +40,11 @@ app.use((req, res, next) => {
 
 // Routes for photo-related functionalities
 // app.get('/photos/:photoId', photoController.getPhotoDetails);
+//router me add karna hai
+app.get('/photo/:photoId', photoController.getPhotoDetails);
+app.post('/updatePhoto/:photoId', photoController.updatePhotoCaption);
+app.get('/deletePhoto/:photoId', photoController.deletePhoto);
+
 app.post('/api/photos/:photoId/like', photoController.likePhoto);
 app.post('/api/photos/:photoId/unlike', photoController.unlikePhoto);
 

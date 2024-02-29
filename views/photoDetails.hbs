@@ -1,0 +1,46 @@
+
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/styles/photoDetails.css" />
+    <link rel="stylesheet" href="/styles/navbar.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <title>Photo Details</title>
+  </head>
+  <body>
+    {{>navbar}}
+
+    <div class="heading">
+      <h2>Hi, <span>{{name}}</span></h2>
+      <img src="/logo.png" alt="" />
+    </div>
+
+    <div class="photo-details">
+      <img src="{{selectedPhoto.imageUrl}}" alt="{{selectedPhoto.title}}" />
+      <div class="details">
+        <div class="caption">
+          <h2>Title: {{selectedPhoto.title}}</h2>
+          <p>Caption: {{selectedPhoto.caption}}</p>
+          <p>Posted by: {{selectedPhoto.user.name}}</p>
+        </div>
+        <div class="action-buttons">
+          <a href="#" onclick="openUpdateForm()">Update Caption</a>
+          <a id="delete" href="/deletePhoto/{{selectedPhoto._id}}">Delete Photo</a>
+          <form id="updateForm" action="/updatePhoto/{{selectedPhoto._id}}" method="post" style="display: none;">
+            <label for="newCaption">New Caption:</label>
+            <input type="text" id="newCaption" name="newCaption" value="{{selectedPhoto.caption}}" required />
+            <button type="submit">Update Caption</button>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openUpdateForm() {
+        document.getElementById("updateForm").style.display = "block";
+        document.getElementById("delete").style.display = "none";
+        document.querySelector(".action-buttons a").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

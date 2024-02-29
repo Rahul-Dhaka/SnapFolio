@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapFolio</title>
+    <link rel="stylesheet" href="/styles/navbar.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="/styles/explore.css">
+
+</head>
+<body>
+    {{>navbar}}
+    
+    <div class="heading">
+        <h2>ExplorePage</h2>
+        <img src="/logo.png" alt="" />
+    </div>
+
+<div class="exploreContainer" id="exploreContainer">
+  {{#each shuffledPhotos as |post|}}
+    <div class="post" onclick="openModal('{{post.imageUrl}}', '{{post.caption}}', '@{{post.user.username}}')">
+      <img src={{post.imageUrl}} alt="Post Image">
+    </div>
+  {{/each}}
+</div>
+
+<div id="loadMoreContainer">
+    {{!-- onclick="loadMorePosts()" --}}
+  <button id="loadMoreButton" onclick="location.href = 'https://www.youtube.com/watch?v=kgR7dZuj2Vg&ab_channel=Memeagious';">Load More</button>
+</div>
+
+
+</div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="close" onclick="closeModal()" style="cursor: pointer;">&times;</div>
+            <img id="modalImage" src="" alt="Modal Image">
+            <div class="caption" id="modalCaption"></div>
+            <p class="user" id="modalUser"></p>
+        </div>
+    </div>
+
+
+
+<script>
+    document.getElementById("loadMoreButton").onclick = function () {
+        location.href = "https://www.youtube.com/watch?v=kgR7dZuj2Vg&ab_channel=Memeagious";
+    };
+
+  let skip = {{shuffledPhotos.length}}; // Initial value based on the number of posts loaded
+  // Function to check if the user has scrolled to the bottom of the page
+  function isScrolledToBottom() {
+  console.log("on scroll Working")
+    const exploreContainer = document.getElementById('exploreContainer');
+    return window.innerHeight + window.scrollY >= exploreContainer.offsetHeight;
+  }
+
+  // Function to load more posts
+  function loadMorePosts() {
+    // Disable the scroll event listener temporarily to prevent multiple requests
+    window.removeEventListener('scroll', handleScroll);
+
+    fetch('/explore/loadmore', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        skip: skip,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        const exploreContainer = document.getElementById('exploreContainer');
+
+        // Append new posts to the explore container
+        data.shuffledPhotos.forEach(post => {
+          const postElement = document.createElement('div');
+          postElement.classList.add('post');
+          postElement.onclick = function() {
+            openModal(post.imageUrl, post.caption, `@${post.user.username}`);
+          };
+
+          const imgElement = document.createElement('img');
+          imgElement.src = post.imageUrl;
+          imgElement.alt = 'Post Image';
+
+          postElement.appendChild(imgElement);
+          exploreContainer.appendChild(postElement);
+        });
+
+        // Update skip value for the next request
+        skip += data.shuffledPhotos.length;
+
+        // Enable the scroll event listener
+        window.addEventListener('scroll', handleScroll);
+      })
+      .catch(error => {
+        console.error('Error loading more posts:', error);
+        // Enable the scroll event listener in case of an error
+        window.addEventListener('scroll', handleScroll);
+      });
+  }
+
+  // Function to handle the scroll event
+  function handleScroll() {
+    if (isScrolledToBottom()) {
+      loadMorePosts();
+    }
+  }
+
+  // Attach the scroll event listener
+  window.addEventListener('scroll', handleScroll);
+</script>
+    <script>
+        function openModal(imageUrl, caption, user) {
+            const modal = document.getElementById('myModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalCaption = document.getElementById('modalCaption');
+            const modalUser = document.getElementById('modalUser');
+
+            modalImage.src = imageUrl;
+            modalCaption.textContent = caption;
+            modalUser.textContent = user;
+            modal.style.display = 'flex';
+        }
+        var modalOverlay = document.querySelector('.modal');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modalOverlay) {
+            closeModal();
+          }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+    </script>
+    
+    
+</body>
+</html>
