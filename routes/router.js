@@ -2,6 +2,7 @@ const express = require('express');
 const router = new express();
 const authController = require('../controller/auth');
 const exploreController = require('../controller/exploreController');
+const commentController = require('../controller/commentController');
 const sectionsController = require('../controller/sections');
 const myPassport = require('../auth/myPassport');
 const photo = require('../models/photo');

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+        <link rel="stylesheet" href="/styles/commentDetails.css">
+            <link rel="stylesheet" href="/styles/navbar.css" />
+
+    <title>Document</title>
+</head>
+<body>
+    {{>navbar}}
+    
+    <div class="heading">
+        <h2>ExplorePage</h2>
+        <img src="/logo.png" alt="" />
+    </div>
+    <div class="totalContainer">
+        <div class="imageContainer">
+            <img src={{selectedPhoto.imageUrl}} alt="">
+        </div>
+        <div class="imageDetailsContainer">
+            <div class="imageinfo">
+                <h2>Title: {{selectedPhoto.title}}</h2>
+                <p>Caption: {{selectedPhoto.caption}}</p>
+                <p>Posted by: {{selectedPhoto.user.username}}</p>
+            </div>
+            <div class="commentSecetion">
+                {{!-- {{comments}} --}}
+                {{#each comments as |c|}}
+
+                    {{c.user.username}}:
+                    {{c.comments}}
+                    <br>
+                {{/each}}
+            </div>
+            <div class="buttons">
+                <div class="like">
+                        <div class="counter" id="likeCounter{{post._id}}">{{selectedPhoto.likes.length}} likes</div>
+                        {{!-- <button class="l2button likeBtn" data-photo-id="{{post._id}}"><i class="fas fa-thumbs-up"></i></button>
+                        <button class="l2button dislikeBtn" data-photo-id="{{post._id}}"><i class="fas fa-thumbs-down"></i></button>      --}}
+                </div>
+            </div>
+            <div class="commentBox">
+                <form id="comment" action="/comment/{{selectedPhoto._id}}" method="post" >
+                {{!-- /{{selectedPhoto._id}} --}}
+                    <label for="newComment">comment</label>
+                    <input type="text" id="newComment" name="newComment" />
+                    <button type="submit">comment plz</button>
+                </form>
+            </div>                
+        </div>
+    </div>
+</body>
+</html>
