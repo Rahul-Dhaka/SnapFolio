@@ -33,12 +33,12 @@ router.post('/explore/loadmore', exploreController.loadMorePosts);
 
 
 
-router.post(`/test`, async (req,res)=>{
-    console.log(req.body.search)
+router.post(`/search`, async (req,res)=>{
+    // console.log(req.body.search)
     let tag = req.body.search;
     let posts = await photo.find({tags: tag});
     console.log(posts)
-    res.render('test', {posts});
+    res.render('search', {posts, tag});
 
 });
 

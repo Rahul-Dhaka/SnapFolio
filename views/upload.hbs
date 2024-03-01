@@ -1,45 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SnapFolio</title>
     <link rel="stylesheet" href="/styles/navbar.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="/styles/upload.css">
 </head>
+
 <body>
     {{>navbar}}
     <div class="heading">
-      <h2>Upload Post</span></h2>
-      <img src="/logo.png" alt="" />
+        <h2>Upload Post</span></h2>
+        <img src="/logo.png" alt="" />
     </div>
-     <div class="upload-container">
+    <div class="upload-container">
         <h1 class="upload-title">Add your photo</h1>
         <form action="/upload" method="POST" enctype="multipart/form-data" class="upload-form">
-         <div class="upload-file-container">
-            <label for="post-image" class="upload-label">Image:</label>
+            <div class="upload-file-container">
+                <label for="post-image" class="upload-label">Image:</label>
                 <input type="file" id="post-image" name="image" accept="image/*" class="upload-file" required>
                 {{!-- <i class="fas fa-cloud-upload-alt upload-file-icon"></i> --}}
             </div>
 
-         <label for="post-content" class="upload-label">Caption:</label>
-         <textarea id="post-content" name="caption" rows="3" class="upload-textarea" required></textarea>
+            <label for="post-content" class="upload-label">Caption:</label>
+            <textarea id="post-content" name="caption" rows="3" class="upload-textarea" required></textarea>
 
 
-            <label for="post-title" class="upload-label">Title:</label>
-            <input type="text" id="post-title" name="title" class="upload-input" required>
+          
 
-        <label for="java"><input type="checkbox" id="java" name="tags" value="Technology">Technology</label>
-        <label for="python"><input type="checkbox" id="python" name="tags" value="nature"> Nature</label>
-        <label for="javascript"><input type="checkbox" id="javascript" name="tags" value="education">education</label>
-        <label for="csharp"><input type="checkbox" id="csharp" name="tags" value="fun">Fun</label>
+            <div class="checkbox-wrapper-16">
+                <label class="checkbox-wrapper">
+                    <input name="tags" type="checkbox" value="technology" class="checkbox-input" />
+                    <span class="checkbox-tile">
+                        <span class="checkbox-label">technology</span>
+                    </span>
+                </label>
+                <label class="checkbox-wrapper">
+                    <input name="tags" type="checkbox" value="fun" class="checkbox-input" />
+                    <span class="checkbox-tile">
+                        <span class="checkbox-label">fun</span>
+                    </span>
+                </label>
+                <label class="checkbox-wrapper">
+                    <input name="tags" type="checkbox" value="education" class="checkbox-input" />
+                    <span class="checkbox-tile">
+                        <span class="checkbox-label">education</span>
+                    </span>
+                </label>
+                <label class="checkbox-wrapper">
+                    <input name="tags" type="checkbox" value="nature" class="checkbox-input" />
+                    <span class="checkbox-tile">
+                        <span class="checkbox-label">nature</span>
+                    </span>
+                </label>
+                <label class="checkbox-wrapper">
+                    <input name="tags" type="checkbox" class="checkbox-input" />
+                    <span class="checkbox-tile">
+                        <span class="checkbox-label">masti</span>
+                    </span>
+                </label>
 
-           
-            
-           
+            </div>
+
+
+
             <button type="submit" class="upload-button">Upload</button>
         </form>
     </div>
 </body>
+
 </html>

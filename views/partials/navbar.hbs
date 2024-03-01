@@ -3,8 +3,10 @@
         <li><a href="/home">Home</a></li>
         <li><a href="/explore">Explore</a></li>
         <li><div class="search-box">
-            <input type="text" class="search-input" placeholder="Search..." />
-            <button class="search-button"><i class="fas fa-search"></i></button>
+          <form method="post" action="/search">
+            <input type="text" name="search" class="search-input" value='{{tag}}'  placeholder="search..." />
+            <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+            </form>
           </div></li>
         <li><a href="/upload">Upload</a></li>
         <li><a href="/profile">Profile</a></li>

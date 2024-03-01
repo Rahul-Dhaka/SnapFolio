@@ -8,8 +8,7 @@ module.exports.getPhotoDetails = async (req, res) => {
     } else {
       try {
         const photoId = req.params.photoId;
-        const selectedPhoto = await Photo.findById(photoId)
-        // .populate('user');
+        const selectedPhoto = await Photo.findById(photoId).populate('user');
         res.render("photoDetails", { selectedPhoto });
       } catch (error) {
         console.error(error);
@@ -27,7 +26,7 @@ try {
     // Updating the photo caption in the database
     await Photo.findByIdAndUpdate(photoId, { caption: newCaption });
 
-    res.redirect(`/photo/${photoId}`);
+    res.redirect(`/photo/${photoId}`, );
 } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');

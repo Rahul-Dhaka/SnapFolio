@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnapFolio</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="styles/navbar.css">
+  <link rel="stylesheet" href="styles/search.css">
+ 
+</head>
+
+<body>
+  {{>navbar}}
+
+  <script>
+    let searchinp = document.querySelector('.search-input');
+    searchinp.value = `{{tag}}`;
+  </script>
+
+  <div class="heading">
+    <h2>HomePage</h2>
+    <img src="/logo.png" alt="" />
+  </div>
+
+  <div class="container">
+    <h3>You searched for - {{tag}}</h3>
+    <div class="photoscontainer">
+
+      {{#each posts as |p|}}
+      <a href="/photo/{{p._id}}">
+        <div class="square-container">
+
+          <div class="square-image" style="background-image: url({{p.imageUrl}});">
+            <div class="features">
+
+              <div class="likes" id="likeCounter"><i class="fas fa-heart"></i>
+                <p> {{p.likes.length}}</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </a>
+      {{/each}}
+
+    </div>
+
+
+    {{!-- {{#each posts as |p|}}
+    <img src={{p.imageUrl}} alt="Post Image">
+    <div class="caption">
+      <p>{{p.caption}}</p>
+      <hr class="ruler">
+      <p class="user">uploaded by : @{{p.user.username}}</p>
+    </div>
+    {{/each}} --}}
+</body>
+
+</html>

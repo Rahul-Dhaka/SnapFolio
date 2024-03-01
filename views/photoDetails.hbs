@@ -10,7 +10,7 @@
     {{>navbar}}
 
     <div class="heading">
-      <h2>Hi, <span>{{name}}</span></h2>
+      <h2>Photo details</span></h2>
       <img src="/logo.png" alt="" />
     </div>
 
@@ -18,7 +18,7 @@
       <img src="{{selectedPhoto.imageUrl}}" alt="{{selectedPhoto.title}}" />
       <div class="details">
         <div class="caption">
-          <h2>Title: {{selectedPhoto.title}}</h2>
+          {{!-- <h2>Title: {{selectedPhoto.title}}</h2> --}}
           <p>Caption: {{selectedPhoto.caption}}</p>
           <p>Posted by: {{selectedPhoto.user.name}}</p>
         </div>
