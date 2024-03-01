@@ -11,6 +11,7 @@ const MongoStore = require('connect-mongo');
 const PORT = 4444;
 // const { isLoggedIn } = require('./middleware/auth'); // Adjust the path accordingly
 const photoController = require('./controller/photoController');
+const commentController = require('./controller/commentController');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -44,6 +45,8 @@ app.use((req, res, next) => {
 app.get('/photo/:photoId', photoController.getPhotoDetails);
 app.post('/updatePhoto/:photoId', photoController.updatePhotoCaption);
 app.get('/deletePhoto/:photoId', photoController.deletePhoto);
+app.get('/comment/:photoId', commentController.getCommentDetails);
+app.post('/comment/:photoId', commentController.postCommentDetails);
 
 app.post('/api/photos/:photoId/like', photoController.likePhoto);
 app.post('/api/photos/:photoId/unlike', photoController.unlikePhoto);
