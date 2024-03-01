@@ -31,7 +31,9 @@
                     <div class="like">
                         <div class="counter" id="likeCounter{{post._id}}">{{post.likes.length}} likes</div>
                         <button class="l2button likeBtn" data-photo-id="{{post._id}}"><i class="fas fa-thumbs-up"></i></button>
-                        <button class="l2button dislikeBtn" data-photo-id="{{post._id}}"><i class="fas fa-thumbs-down"></i></button>     
+                        <button class="l2button dislikeBtn" data-photo-id="{{post._id}}"><i class="fas fa-thumbs-down"></i></button>    
+                         
+                        <a href="/comment/{{post._id}}"><button class="l2button commentBtn" data-photo-id="{{post._id}}"><i class='far fa-comment'></i></button></a>     
                     </div>
                 </div>
             </div>

@@ -8,8 +8,7 @@ module.exports.getPhotoDetails = async (req, res) => {
     } else {
       try {
         const photoId = req.params.photoId;
-        const selectedPhoto = await Photo.findById(photoId)
-        // .populate('user');
+        const selectedPhoto = await Photo.findById(photoId).populate('user');
         res.render("photoDetails", { selectedPhoto });
       } catch (error) {
         console.error(error);
