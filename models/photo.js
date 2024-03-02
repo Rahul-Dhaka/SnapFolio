@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 
 const photoSchema = new mongoose.Schema({
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'user', required: true },
-    comment: { type: mongoose.Schema.Types.ObjectId, ref: 'comment', required: true },
+    comment: [{ id:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'comment'
+    }}],
     title:{ type: String },
     imageUrl: { type: String, required: true },
     caption: String,

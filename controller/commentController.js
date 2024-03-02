@@ -1,6 +1,5 @@
 const photo = require('../models/photo');
 const Comment = require('../models/comment');
-const comment = require('../models/comment');
 
 module.exports.getCommentDetails = async (req, res) => {
     if (!req.user) {
@@ -10,7 +9,7 @@ module.exports.getCommentDetails = async (req, res) => {
         const photoId = req.params.photoId;
         const selectedPhoto = await photo.findById(photoId).populate('user');
         const comments = await Comment.find({photos :photoId}).populate('user');
-        // console.log(comments)
+        // console.log(selectedPhoto);
         res.render("commentDetails",
          { selectedPhoto, comments }
          );
@@ -25,11 +24,14 @@ module.exports.getCommentDetails = async (req, res) => {
 module.exports.postCommentDetails = async (req, res) => {
   const user = req.user._id;
   const photoId = req.params.photoId;
-  console.log(photoId);
-console.log(req.body.newComment);
-console.log(user);
+//   console.log(photoId);
+// console.log(req.body.newComment);
+// console.log(user);
 
 let insertComment = await Comment.create({user, photos: photoId, comments: req.body.newComment});
+let currentPhoto = await photo.find({_id : photoId});
+// await currentPhoto.comment.push(insertComment._id);
+  console.log(currentPhoto);
 console.log("comment done");
   res.redirect(`/comment/${photoId}`)
 // res.send('done');

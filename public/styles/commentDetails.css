@@ -1,56 +1,122 @@
-*{
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
-}
 .heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
-    height: 85px;
-    background-color: #fff;
-    border-radius: 0px 0px 40px 40px;
-    box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.15);
-  }
-  
-  .heading h2 {
-    padding: 30px;
-  }
-  
-  .heading img {
-    width: 250px;
-    padding: 20px;
-    margin-top: 20px;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 85px;
+  background-color: #fff;
+  border-radius: 0px 0px 40px 40px;
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.15);
+}
 
-  .totalContainer {
-    width: 70%;
-    height: 70vh;
-    margin: 20px auto;
-    background-color: #fff;
-    /* padding: 20px; */
-    /* border-radius: 8px; */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-  }
-  .imageContainer{
-    width: 50%;
-    /* padding: auto; */
-    max-height: 100%;
-    display: flex;
-    justify-content: center;
-    background-color: black;
-    padding: 70px 0px;
+.heading h2 {
+  padding: 30px;
+}
 
-  }
-  .imageContainer img {
-    max-width: 100%;
-    height: auto;
-    /* border-radius: 8px; */
-    /* margin-right: 20px; */
-    /* margin: auto; */
-  }
-  .imageDetailsContainer{
-    width: 50%;
-  }
+.heading img {
+  width: 250px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.container {
+  height: 80vh;
+  width: fit-content;
+  margin: 25px auto;
+  background-color: #add8e6;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  /* border: 1px solid rgba(255, 255, 255, 0.125); */
+  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.partition {
+  /* width: 50%; */
+  height: 100%;
+}
+
+.p1 {
+  min-width: 40%;
+  max-width: 80%;
+  box-sizing: border-box;
+}
+
+.p1 img {
+  width: 100%; /* or any custom size */
+  height: 100%;
+  object-fit: contain;
+}
+
+.p2 {
+  min-width: 250px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.postDetails {
+  height: 20%;
+}
+
+.postDetails :last-child{
+  text-align: right;
+  align-self: flex-end;
+  font-weight: 500;
+  font-style: italic;
+}
+.commentSection {
+  height: 70%;
+  overflow-y:scroll;
+  scrollbar-width: none;
+}
+
+.commentSection p{
+  padding: 2px;
+
+}
+
+.commentSection p span{
+  background-color: rgb(119, 177, 177);
+  border-radius: 50px;
+  padding: 1px 6px;
+}
+
+.ruler {
+  width: 100%;
+  border: none;
+  height: 2px;
+  background-color: #a8a2a2;
+  margin: 10px 0;
+}
+.commentBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  align-self: flex-end;
+  height: 10%;
+  bottom: 0;
+}
+
+#newComment {
+  border-radius: 50px;
+  border: 1px solid gray;
+  outline: none;
+  padding: 4px 8px;
+  min-width: 250px;
+}
+
+.commentBox button {
+  border-radius: 50px;
+  outline: none;
+  padding: 5px 10px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+}

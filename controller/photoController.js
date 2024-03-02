@@ -47,7 +47,7 @@ module.exports.deletePhoto = async (req, res) => {
     }
 };
 //Like Photo
-exports.likePhoto = async (req, res) => {
+module.exports.likePhoto = async (req, res) => {
     try {
         const { photoId } = req.params;
         const photo = await Photo.findById(photoId);
@@ -68,7 +68,7 @@ exports.likePhoto = async (req, res) => {
     }
 };
 
-exports.unlikePhoto = async (req, res) => {
+module.exports.unlikePhoto = async (req, res) => {
     try {
         const { photoId } = req.params;
         const photo = await Photo.findById(photoId);
