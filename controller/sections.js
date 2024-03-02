@@ -1,3 +1,4 @@
+const comment = require('../models/comment');
 const photo = require('../models/photo');
 
 module.exports.getProfile = async (req, res) => {
@@ -10,7 +11,7 @@ module.exports.getProfile = async (req, res) => {
       username: req.user.username,
       name: req.user.name,
       age: req.user.age,
-      photos
+      photos,
     });
   }
 };

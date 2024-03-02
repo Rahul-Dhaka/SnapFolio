@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SnapFolio</title>
     <link rel="stylesheet" href="/styles/navbar.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="/styles/home.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    
+
 </head>
+
 <body>
     {{>navbar}}
-    
+
     <div class="heading">
         <h2>HomePage</h2>
         <img src="/logo.png" alt="" />
@@ -20,34 +22,38 @@
 
     <div class="container">
         {{#each photoes as |post|}}
-            <div class="post">
-                <img src={{post.imageUrl}} alt="Post Image">
-                <div class="caption">
-                    <p>{{post.caption}}</p><hr class="ruler">
-                    <p class="user">uploaded by : @{{post.user.username}}</p>
-                </div>
-                
-                <div class="features">
-                    <div class="like">
-                        <div class="counter" id="likeCounter{{post._id}}">{{post.likes.length}} likes</div>
-                        <button class="l2button likeBtn" data-photo-id="{{post._id}}"><i class="fas fa-thumbs-up"></i></button>
-                        <button class="l2button dislikeBtn" data-photo-id="{{post._id}}"><i class="fas fa-thumbs-down"></i></button>    
-                         
-                        <a href="/comment/{{post._id}}"><button class="l2button commentBtn" data-photo-id="{{post._id}}"><i class='far fa-comment'></i></button></a>     
-                    </div>
-                </div>
+        <div class="post">
+            <img src={{post.imageUrl}} alt="Post Image">
+            <div class="caption">
+                <p>{{post.caption}}</p>
+                <hr class="ruler">
+                <p class="user">uploaded by : @{{post.user.username}}</p>
             </div>
+
+            <div class="features">
+                <div class="like">
+                    <div class="counter" id="likeCounter{{post._id}}">{{post.likes.length}} likes </div>
+                    <button class="l2button likeBtn" data-photo-id="{{post._id}}"><i
+                                class="fas fa-thumbs-up"></i></button>
+                        <button class="l2button dislikeBtn" data-photo-id="{{post._id}}"><i
+                                class="fas fa-thumbs-down"></i></button>
+                </div>
+                    <div class="comment">
+                        <div>{{comments.length}} comments <a href="/comment/{{post._id}}"><button class="l2button commentBtn" data-photo-id="{{post._id}}"><i class='fas fa-comment'></i></button></a>   </div>
+                    </div>
+            </div>
+        </div>
         {{/each}}
     </div>
 
     <script>
-        $(document).ready(function() {
-            $('.likeBtn').on('click', function() {
+        $(document).ready(function () {
+            $('.likeBtn').on('click', function () {
                 const photoId = $(this).data('photo-id');
                 likePhoto(photoId);
             });
 
-            $('.dislikeBtn').on('click', function() {
+            $('.dislikeBtn').on('click', function () {
                 const photoId = $(this).data('photo-id');
                 unlikePhoto(photoId);
             });
@@ -56,10 +62,10 @@
                 $.ajax({
                     method: 'POST',
                     url: `/api/photos/${photoId}/like`,
-                    success: function(response) {
+                    success: function (response) {
                         updateLikeCount(photoId, response.likes);
                     },
-                    error: function(error) {
+                    error: function (error) {
                         console.error('Error liking photo:', error);
                     }
                 });
@@ -69,10 +75,10 @@
                 $.ajax({
                     method: 'POST',
                     url: `/api/photos/${photoId}/unlike`,
-                    success: function(response) {
+                    success: function (response) {
                         updateLikeCount(photoId, response.likes);
                     },
-                    error: function(error) {
+                    error: function (error) {
                         console.error('Error unliking photo:', error);
                     }
                 });
@@ -84,4 +90,5 @@
         });
     </script>
 </body>
+
 </html>

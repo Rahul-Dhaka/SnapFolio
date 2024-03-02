@@ -22,8 +22,9 @@
 .container {
   height: 80vh;
   width: fit-content;
+  max-width: 90vw;
   margin: 25px auto;
-  background-color: #add8e6;
+  background-color: #fff;
   display: flex;
   justify-content: center;
   box-sizing: border-box;
@@ -54,6 +55,7 @@
 
 .p2 {
   min-width: 250px;
+  max-width: 500px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -61,7 +63,8 @@
 }
 
 .postDetails {
-  height: 20%;
+  /* height: 20%; */
+  margin-bottom: 9px;
 }
 
 .postDetails :last-child{
@@ -69,6 +72,11 @@
   align-self: flex-end;
   font-weight: 500;
   font-style: italic;
+}
+
+.features{
+  display: flex;
+  justify-content: space-around;
 }
 .commentSection {
   height: 70%;
@@ -92,7 +100,7 @@
   border: none;
   height: 2px;
   background-color: #a8a2a2;
-  margin: 10px 0;
+  margin: 5px 0;
 }
 .commentBox {
   display: flex;
@@ -109,7 +117,7 @@
   border: 1px solid gray;
   outline: none;
   padding: 4px 8px;
-  min-width: 250px;
+  min-width: 300px;
 }
 
 .commentBox button {
@@ -119,4 +127,8 @@
   background-color: #007bff;
   border: none;
   color: white;
+}
+
+.commentBox button:hover{
+  cursor: pointer;
 }

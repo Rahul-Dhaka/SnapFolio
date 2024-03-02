@@ -24,10 +24,14 @@
         <div class="partition p1"><img src={{selectedPhoto.imageUrl}} alt=""></div>
         <div class="partition p2">
             <div class="postDetails">
-                <p>{{selectedPhoto.caption}}</p><br>
+                <p>{{selectedPhoto.caption}}</p>
                 <p>- {{selectedPhoto.user.username}}</p>
-                {{comments.length}}
             </div>
+            <hr class="ruler">
+             <div class="features">
+                        <div class="lcounter" id="likeCounter{{post._id}}">{{selectedPhoto.likes.length}} <i class="far fa-heart"></i></div>
+                        <div class="ccounter" id="likeCounter{{post._id}}">{{comments.length}} <i class="far fa-comment"></i></i></div>
+                </div>
             <hr class="ruler">
 
             <div class="commentSection">

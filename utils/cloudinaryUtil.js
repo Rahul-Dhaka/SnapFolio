@@ -29,7 +29,11 @@ module.exports.uploadPhoto = (req, res) => {
   const user = req.user._id;
   cloudinary.uploader.upload(
     `${req.file.path}`,
-    { public_id: "olympic_flag" },
+    // { public_id: "olympic_flag" }
+    {
+      use_filename: true, 
+      unique_filename: false
+    },
     async function (error, result) {
         console.log(req.file.path);
       // console.log(result.url);
