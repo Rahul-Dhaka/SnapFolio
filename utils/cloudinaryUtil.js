@@ -5,9 +5,9 @@ const cloudinary = require("cloudinary").v2;
 
 
 cloudinary.config({
-  cloud_name: "dl7cia5oa",
-  api_key: "721851231546765",
-  api_secret: "REE9Cd_YVuFaDrQGZm--JnZfTuM",
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
 });
 
 module.exports.storage = multer.diskStorage({
@@ -22,8 +22,7 @@ module.exports.storage = multer.diskStorage({
 
 module.exports.uploadPhoto = (req, res) => {
   const { title, tags, caption } = req.body;
-  // console.log(title, desc, tags, caption);
-  // console.log(tags);
+
 
   
   const user = req.user._id;
@@ -35,8 +34,7 @@ module.exports.uploadPhoto = (req, res) => {
       unique_filename: false
     },
     async function (error, result) {
-        console.log(req.file.path);
-      // console.log(result.url);
+        // console.log(req.file.path);
       let url = result.url;
       let photo = await Photo.create({
         user,

@@ -20,7 +20,8 @@ module.exports.getHome = async (req, res) => {
   if (!req.user) {
     res.redirect("/login");
   } else {
-    let photoes = await photo.find({}).populate('user');
+    let photoes = await photo.find({}).populate('user').sort({_id : -1});
+    // console.log(photoes);
     res.render("home", {
       photoes,
     });

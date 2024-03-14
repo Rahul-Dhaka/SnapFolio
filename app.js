@@ -16,6 +16,7 @@ const commentController = require('./controller/commentController');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.set("view engine", "hbs");
+app.set("views", path.join(__dirname, "views"));
 hbs.registerPartials(path.join(__dirname,'views/partials'));
 app.use(session({
   secret: 'kitkat',

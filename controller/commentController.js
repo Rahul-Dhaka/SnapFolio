@@ -31,8 +31,8 @@ module.exports.postCommentDetails = async (req, res) => {
 let insertComment = await Comment.create({user, photos: photoId, comments: req.body.newComment});
 let currentPhoto = await photo.find({_id : photoId});
 // await currentPhoto.comment.push(insertComment._id);
-  console.log(currentPhoto);
-console.log("comment done");
+//   console.log(currentPhoto);
+// console.log("comment done");
   res.redirect(`/comment/${photoId}`)
 // res.send('done');
 
