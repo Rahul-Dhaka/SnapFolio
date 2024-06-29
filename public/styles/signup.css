@@ -89,22 +89,6 @@ body{
     transition: background-color 0.3s ease;
   }
 
-  .shead{
-    display: inline-block;
-    margin-bottom: 5px;
-}
   
-  .loginbtn {
-    width: 100%;
-    padding: 6px;
-    margin-top: 15px;
-    font-size: 18px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
 
   
